@@ -1,7 +1,7 @@
 {
-  "name": "react-ui-tree",
-  "version": "2.4.1",
-  "description": "React tree component",
+  "name": "yb-ui-tree",
+  "version": "0.0.3",
+  "description": "yb react tree component",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server -c --port=8888",
@@ -9,19 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pqx/react-ui-tree.git"
+    "url": "https://github.com/mockeryjones/yb-ui-tree.git"
   },
   "keywords": [
     "react",
     "react-component",
     "tree"
   ],
-  "author": "Wang Zuo",
+  "author": "Mockery Jones",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pqx/react-ui-tree/issues"
+    "url": "https://github.com/mockeryjones/yb-ui-tree/issues"
   },
-  "homepage": "https://github.com/pqx/react-ui-tree",
+  "homepage": "https://github.com/mockeryjones/yb-ui-tree",
   "peerDependencies": {
     "react": "^0.14.2",
     "react-dom": "^0.14.2"
