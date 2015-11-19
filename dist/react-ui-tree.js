@@ -37,19 +37,16 @@ module.exports = React.createClass({
   render: function render() {
     console.log('rendering tree');
     var tree = this.state.tree;
-    var dragging = this.state.dragging;
 
     return React.createElement(
       'div',
       { className: 'm-tree' },
-      draggingDom,
       React.createElement(Node, {
         tree: tree,
         index: tree.getIndex(1),
         key: 1,
         paddingLeft: this.props.paddingLeft,
-        onCollapse: this.toggleCollapse,
-        dragging: dragging && dragging.id
+        onCollapse: this.toggleCollapse
       })
     );
   },

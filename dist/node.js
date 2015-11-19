@@ -27,13 +27,11 @@ var Node = React.createClass({
     var _this = this;
 
     var index = this.props.index;
-    var tree = this.props.tree;
-    var dragging = this.props.dragging;
 
     if (index.children && index.children.length) {
       var childrenStyles = {};
       if (index.node.collapsed) childrenStyles.display = 'none';
-      childrenStyles['paddingLeft'] = this.props.paddingLeft + 'px';
+      childrenStyles.paddingLeft = this.props.paddingLeft + 'px';
 
       return React.createElement(
         'div',
@@ -44,10 +42,8 @@ var Node = React.createClass({
             tree: tree,
             index: childIndex,
             key: childIndex.id,
-            dragging: dragging,
             paddingLeft: _this.props.paddingLeft,
-            onCollapse: _this.props.onCollapse,
-            onDragStart: _this.props.onDragStart
+            onCollapse: _this.props.onCollapse
           });
         })
       );
@@ -58,15 +54,12 @@ var Node = React.createClass({
   render: function render() {
     var tree = this.props.tree;
     var index = this.props.index;
-    var dragging = this.props.dragging;
     var node = index.node;
     var styles = {};
 
     return React.createElement(
       'div',
-      { className: cx('m-node', {
-          'placeholder': index.id === dragging
-        }), style: styles },
+      { className: cx('m-node', ''), style: styles },
       React.createElement(
         'div',
         { className: 'inner', ref: 'inner', onMouseDown: this.handleMouseDown },
@@ -84,10 +77,6 @@ var Node = React.createClass({
   handleMouseDown: function handleMouseDown(e) {
     var nodeId = this.props.index.id;
     var dom = this.refs.inner;
-
-    if (this.props.onDragStart) {
-      this.props.onDragStart(nodeId, dom, e);
-    }
   }
 });
 
