@@ -27,11 +27,12 @@ var Node = React.createClass({
     var _this = this;
 
     var index = this.props.index;
+    var tree = this.props.tree;
 
     if (index.children && index.children.length) {
       var childrenStyles = {};
       if (index.node.collapsed) childrenStyles.display = 'none';
-      childrenStyles.paddingLeft = this.props.paddingLeft + 'px';
+      childrenStyles['paddingLeft'] = this.props.paddingLeft + 'px';
 
       return React.createElement(
         'div',
