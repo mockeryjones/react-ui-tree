@@ -2,43 +2,22 @@
 
 var cx = require('classnames');
 var React = require('react');
-var PropTypes = React.PropTypes;
 var ReactDOM = require('react-dom');
-var ItemTypes = require('./const.js').ItemTypes;
-var DragSource = require('react-dnd').DragSource;
-
-var nodeSource = {
-  beginDrag: function beginDrag(props) {
-    return {};
-  }
-};
-
-function collect(connect, monitor) {
-  return {
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
-  };
-}
 
 var Node = React.createClass({
   displayName: 'Node',
-
-  propTypes: {
-    connectDragSource: PropTypes.func.isRequired,
-    isDragging: PropTypes.bool.isRequired
-  },
   renderCollapse: function renderCollapse() {
     var index = this.props.index;
 
     if (index.children && index.children.length) {
       var collapsed = index.node.collapsed;
 
-      return connectDragSource(React.createElement('span', {
+      return React.createElement('span', {
         className: cx('collapse', collapsed ? 'caret-right' : 'caret-down'),
         onMouseDown: function onMouseDown(e) {
           e.stopPropagation();
         },
-        onClick: this.handleCollapse }));
+        onClick: this.handleCollapse });
     }
 
     return null;
@@ -78,10 +57,8 @@ var Node = React.createClass({
     var index = this.props.index;
     var node = index.node;
     var styles = {};
-    var connectDragSource = this.props.connectDragSource;
-    var isDragging = this.props.isDragging;
 
-    return connectDragSource(React.createElement(
+    return React.createElement(
       'div',
       { className: cx('m-node', ''), style: styles },
       React.createElement(
@@ -91,7 +68,7 @@ var Node = React.createClass({
         tree.renderNode(node)
       ),
       this.renderChildren()
-    ));
+    );
   },
   handleCollapse: function handleCollapse(e) {
     e.stopPropagation();
@@ -104,4 +81,4 @@ var Node = React.createClass({
   }
 });
 
-module.exports = DragSource(ItemTypes.NODE, nodeSource, collect)(Node);
+module.exports = Node;
