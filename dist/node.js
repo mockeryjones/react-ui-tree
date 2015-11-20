@@ -2,6 +2,7 @@
 
 var cx = require('classnames');
 var React = require('react');
+var PropTypes = React.PropTypes;
 var ReactDOM = require('react-dom');
 var ItemTypes = require('./const.js').ItemTypes;
 var DragSource = require('react-dnd').DragSource;
