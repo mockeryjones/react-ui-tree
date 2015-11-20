@@ -21,7 +21,8 @@ function collect(connect, monitor) {
 }
 
 var Node = React.createClass({
-  displayName: 'UITreeNode',
+  displayName: 'Node',
+
   propTypes: {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired
@@ -72,6 +73,7 @@ var Node = React.createClass({
     return null;
   },
   render: function render() {
+    console.log(this.props);
     var tree = this.props.tree;
     var index = this.props.index;
     var node = index.node;
