@@ -35,7 +35,6 @@ module.exports = React.createClass({
     };
   },
   render: function render() {
-    console.log('rendering tree');
     var tree = this.state.tree;
 
     return React.createElement(

@@ -52,7 +52,6 @@ var Node = React.createClass({
     return null;
   },
   render: function render() {
-    console.log(this.props);
     var tree = this.props.tree;
     var index = this.props.index;
     var node = index.node;
