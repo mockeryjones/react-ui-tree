@@ -3,10 +3,28 @@
 var cx = require('classnames');
 var React = require('react');
 var ReactDOM = require('react-dom');
+var ItemTypes = require('./const.js').ItemTypes;
+var DragSource = require('react-dnd').DragSource;
+
+var nodeSource = {
+  beginDrag: function beginDrag(props) {
+    return {};
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  };
+}
 
 var Node = React.createClass({
   displayName: 'UITreeNode',
-
+  propTypes: {
+    connectDragSource: PropTypes.func.isRequired,
+    isDragging: PropTypes.bool.isRequired
+  },
   renderCollapse: function renderCollapse() {
     var index = this.props.index;
 
@@ -57,8 +75,11 @@ var Node = React.createClass({
     var index = this.props.index;
     var node = index.node;
     var styles = {};
+    var _props = this.props;
+    var connectDragSource = _props.connectDragSource;
+    var isDragging = _props.isDragging;
 
-    return React.createElement(
+    return connectDragSource(React.createElement(
       'div',
       { className: cx('m-node', ''), style: styles },
       React.createElement(
@@ -68,7 +89,7 @@ var Node = React.createClass({
         tree.renderNode(node)
       ),
       this.renderChildren()
-    );
+    ));
   },
   handleCollapse: function handleCollapse(e) {
     e.stopPropagation();
@@ -81,4 +102,4 @@ var Node = React.createClass({
   }
 });
 
-module.exports = Node;
+module.exports = DragSource(ItemTypes.NODE, nodeSource, collect)(Node);
