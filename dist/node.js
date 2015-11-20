@@ -33,12 +33,12 @@ var Node = React.createClass({
     if (index.children && index.children.length) {
       var collapsed = index.node.collapsed;
 
-      return React.createElement('span', {
+      return connectDragSource(React.createElement('span', {
         className: cx('collapse', collapsed ? 'caret-right' : 'caret-down'),
         onMouseDown: function onMouseDown(e) {
           e.stopPropagation();
         },
-        onClick: this.handleCollapse });
+        onClick: this.handleCollapse }));
     }
 
     return null;
