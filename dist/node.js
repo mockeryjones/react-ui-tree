@@ -76,9 +76,8 @@ var Node = React.createClass({
     var index = this.props.index;
     var node = index.node;
     var styles = {};
-    var _props = this.props;
-    var connectDragSource = _props.connectDragSource;
-    var isDragging = _props.isDragging;
+    var connectDragSource = this.props.connectDragSource;
+    var isDragging = this.props.isDragging;
 
     return connectDragSource(React.createElement(
       'div',
