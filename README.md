@@ -1,8 +1,10 @@
 # react-ui-tree
 React tree component
 
-This project is a fork of gqx react-ui-tree.  It uses the basis of that code but with the addition
-of an improved drag and drop system and uses an updated version of babel for building.
+This project is a fork of gqx react-ui-tree.  It uses the basis of that component but removes the drag and drop
+functionality to better interact with a react dnd container.
+
+```
 
 build requires babel 6.x
 ### Installation
