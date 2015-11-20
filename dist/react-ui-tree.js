@@ -3,10 +3,8 @@
 var React = require('react');
 var Tree = require('./tree');
 var Node = require('./node');
-var HTML5Backend = require('react-dnd-html5-backend');
-var DragDropContext = require('react-dnd').DragDropContext;
 
-module.exports = DragDropContext(HTML5Backend)(React.createClass({
+module.exports = React.createClass({
   displayName: 'UITree',
 
   propTypes: {
@@ -69,4 +67,4 @@ module.exports = DragDropContext(HTML5Backend)(React.createClass({
 
     this.change(tree);
   }
-}));
+});
