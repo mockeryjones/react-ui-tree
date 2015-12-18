@@ -1,6 +1,6 @@
 {
   "name": "yb-ui-tree",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "yb react tree component",
   "main": "index.js",
   "scripts": {
